@@ -87,6 +87,8 @@ decode({described, Descriptor, {map, Fields}}) ->
             #'v1_0.message_annotations'{content = decode_map(Fields)};
         #'v1_0.footer'{} ->
             #'v1_0.footer'{content = decode_map(Fields)};
+        #'v1_0.amqp_value'{} ->
+            #'v1_0.amqp_value'{content = decode_map(Fields)};
         Else ->
             fill_from_map(Else, Fields)
     end;
